@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rep.EmployeeRep;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 @Service
 public class EmployeeService {
     private EmployeeRep employeeRep;
@@ -21,6 +25,10 @@ public class EmployeeService {
 
     public void delete(int id){
         employeeRep.deleteById(id);
+    }
+
+    public List<Employee> getAll(){
+        return employeeRep.findAll();
     }
 
     public Employee getById(int id){
