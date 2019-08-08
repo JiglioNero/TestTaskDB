@@ -1,6 +1,7 @@
 package service;
 
 import domain.Employee;
+import domain.Telephone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rep.EmployeeRep;
@@ -28,6 +29,14 @@ public class EmployeeService {
 
     public Employee update(Employee employee){
         return employeeRep.save(employee);
+    }
+
+    public Employee findByTelephone(Telephone telephone){
+        return employeeRep.findByTelephonesContains(telephone);
+    }
+
+    public Employee findByFIO(String first, String second, String third){
+        return employeeRep.findByFIO(first, second, third);
     }
 
 }
